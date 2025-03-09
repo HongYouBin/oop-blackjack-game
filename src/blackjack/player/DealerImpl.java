@@ -26,26 +26,23 @@ public class DealerImpl implements Dealer {
     }
 
     @Override
-    public void hit() {
-        while(getSum() < 17) {
+    public void hitWhileBelowSeventeen() {
+        System.out.println("--- dealer hit ---");
+        while(getScore() < 17) {
             Card card = cardDeck.selectCard();
             cardList.add(card);
             System.out.println("card is " + card);
-            System.out.println("current sum : " + getSum());
+            System.out.println("current sum : " + getScore());
         }
     }
 
     @Override
-    public int getSum() {
-        int sum = 0;
-        for(int i=0;i<cardList.size();++i) {
-            sum += cardList.get(i).getScore();
-        }
-        return sum;
+    public int getScore() {
+        return cardList.stream().mapToInt(Card::getScore).sum();
     }
 
     @Override
-    public void initCard() {
+    public void selectTwoCards() {
         cardList.add(cardDeck.selectCard());
         cardList.add(cardDeck.selectCard());
     }

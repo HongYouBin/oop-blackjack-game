@@ -13,4 +13,12 @@ public class Card {
     public Integer getScore() {
         return score;
     }
+
+    @Override
+    public String toString() {
+        return "Card{" +
+                "shape='" + shape + '\'' +
+                ", number='" + number + '\'' +
+                '}';
+    }
 }

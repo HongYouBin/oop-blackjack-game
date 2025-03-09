@@ -7,8 +7,7 @@ import java.util.List;
 public interface Dealer {
     Card showCard();
     List<Card> showCards();
-    void hit();
-    int getSum();
-
-    void initCard();
+    void hitWhileBelowSeventeen();
+    int getScore();
+    void selectTwoCards();
 }

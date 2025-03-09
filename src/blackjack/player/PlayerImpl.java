@@ -23,8 +23,8 @@ public class PlayerImpl implements Player {
 
     @Override
     public void hit() {
-        if(getSum() > 21) {
-            System.out.println("score is : " + getSum() + ". you can't hit.");
+        if(getScore() > 21) {
+            System.out.println("score is : " + getScore() + ". you can't hit.");
             return;
         }
         Card card = cardDeck.selectCard();
@@ -32,16 +32,12 @@ public class PlayerImpl implements Player {
     }
 
     @Override
-    public int getSum() {
-        int sum = 0;
-        for(int i=0;i<cardList.size();++i) {
-            sum += cardList.get(i).getScore();
-        }
-        return sum;
+    public int getScore() {
+        return cardList.stream().mapToInt(Card::getScore).sum();
     }
 
     @Override
-    public void initCard() {
+    public void selectTwoCards() {
         hit();
         hit();
     }

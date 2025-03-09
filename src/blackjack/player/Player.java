@@ -7,7 +7,7 @@ import java.util.List;
 public interface Player {
     List<Card> showCards();
     void hit();
-    int getSum();
+    int getScore();
 
-    void initCard();
+    void selectTwoCards();
 }
