@@ -1,16 +1,14 @@
 package blackjack.card;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Random;
+import java.util.*;
 
 public class CardDeck {
-    private Map<Integer, Card> cards;
+    private List<Card> cards;
     private Integer cardCount;
     Random random = new Random();
 
     public CardDeck() {
-        this.cards = new HashMap<>();
+        this.cards = new LinkedList<>();
         this.cardCount = 52;
         initializeDeck();
     }
@@ -24,7 +22,7 @@ public class CardDeck {
         for (String shape : shapes) {
             for (String number : numbers) {
                 int score = getScore(number);
-                cards.put(index++, new Card(shape, number, score));
+                cards.add(new Card(shape, number, score));
             }
         }
     }
